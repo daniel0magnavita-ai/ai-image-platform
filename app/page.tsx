@@ -53,13 +53,19 @@ export default function HomePage() {
   return (
     <main className="page">
       <header className="header">
-        <div className="logo">AI Image Platform</div>
+        <a className="logo" href="/">
+          Nowadays
+        </a>
 
         <nav className="nav">
           <a href="#gerar">Gerar</a>
           <a href="#planos">Planos</a>
           <a href="#galeria">Galeria</a>
           <a href="#suporte">Suporte</a>
+          <a href="/login">Entrar</a>
+          <a className="navButton" href="/login">
+            Criar conta
+          </a>
         </nav>
       </header>
 
@@ -73,6 +79,16 @@ export default function HomePage() {
             Plataforma com geração por prompt, planos mensais, galeria de
             criações, imagens privadas para assinantes e suporte ao cliente.
           </p>
+
+          <div className="row ctaRow">
+            <a className="linkButton" href="/login">
+              Criar conta
+            </a>
+
+            <a className="linkButton secondaryLink" href="/dashboard">
+              Minha conta
+            </a>
+          </div>
 
           <div className="grid">
             <div>
