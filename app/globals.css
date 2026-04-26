@@ -44,6 +44,15 @@ select {
   color: #c5c7d0;
   font-size: 14px;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.navButton {
+  background: #6d5dfc;
+  color: white;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-weight: 700;
 }
 
 .hero {
@@ -120,6 +129,10 @@ button:disabled {
 
 .row > * {
   flex: 1;
+}
+
+.ctaRow {
+  margin: 24px 0;
 }
 
 .checkboxRow {
@@ -204,6 +217,10 @@ button:disabled {
   color: white;
   padding: 14px 18px;
   font-weight: 700;
+}
+
+.secondaryLink {
+  background: #232a3b;
 }
 
 @media (max-width: 900px) {
