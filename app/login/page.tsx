@@ -17,10 +17,18 @@ export default function LoginPage() {
       return;
     }
 
+    if (password.length < 6) {
+      setStatus("A senha precisa ter pelo menos 6 caracteres.");
+      return;
+    }
+
     if (mode === "signup") {
       const { error } = await supabase.auth.signUp({
         email,
-        password
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/setup-profile`
+        }
       });
 
       if (error) {
@@ -28,17 +36,33 @@ export default function LoginPage() {
         return;
       }
 
-      setStatus("Conta criada. Verifique seu e-mail, se o Supabase pedir confirmação.");
+      setStatus("Conta criada. Verifique seu e-mail para confirmar o cadastro.");
       return;
     }
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
     });
 
     if (error) {
       setStatus(error.message);
+      return;
+    }
+
+    if (!data.user) {
+      setStatus("Não foi possível entrar.");
+      return;
+    }
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("username")
+      .eq("id", data.user.id)
+      .single();
+
+    if (!profile?.username) {
+      window.location.href = "/setup-profile";
       return;
     }
 
@@ -51,7 +75,8 @@ export default function LoginPage() {
         <h1>{mode === "login" ? "Entrar" : "Criar conta"}</h1>
 
         <p>
-          Acesse sua conta para gerar imagens, ver créditos, planos e galeria.
+          Acesse sua conta para gerar imagens, ver créditos, planos, galeria e
+          recursos privados.
         </p>
 
         <div className="generator">
@@ -75,12 +100,17 @@ export default function LoginPage() {
 
           <button
             className="secondaryButton"
-            onClick={() => setMode(mode === "login" ? "signup" : "login")}
+            onClick={() => {
+              setStatus("");
+              setMode(mode === "login" ? "signup" : "login");
+            }}
           >
-            {mode === "login"
-              ? "Não tenho conta"
-              : "Já tenho conta"}
+            {mode === "login" ? "Não tenho conta" : "Já tenho conta"}
           </button>
+
+          <a className="linkButton secondaryLink" href="/">
+            Voltar para início
+          </a>
 
           {status && <p className="muted">{status}</p>}
         </div>
