@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0d12;
+  color: #f4f4f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+  color: #c5c7d0;
+  font-size: 14px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.card {
+  background: #131722;
+  border: 1px solid #252b3a;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  color: #b7bbc8;
+  line-height: 1.5;
+}
+
+.generator {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+textarea,
+select,
+input {
+  width: 100%;
+  background: #0b0d12;
+  color: #f4f4f5;
+  border: 1px solid #30384a;
+  border-radius: 12px;
+  padding: 12px;
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  background: #6d5dfc;
+  color: white;
+  padding: 14px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.row > * {
+  flex: 1;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #c5c7d0;
+}
+
+.checkboxRow input {
+  width: auto;
+}
+
+.preview {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  background: #080a0f;
+  border: 1px dashed #333a4e;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.muted {
+  color: #858b9b;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.price {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #232a3b;
+  color: #cfd3df;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
