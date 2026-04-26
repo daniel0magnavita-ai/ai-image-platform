@@ -43,6 +43,7 @@ select {
   gap: 16px;
   color: #c5c7d0;
   font-size: 14px;
+  align-items: center;
 }
 
 .hero {
@@ -175,6 +176,36 @@ button:disabled {
   margin-bottom: 12px;
 }
 
+.authPage {
+  display: grid;
+  place-items: center;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 460px;
+}
+
+.secondaryButton {
+  background: #232a3b;
+}
+
+.smallButton {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.linkButton {
+  display: inline-block;
+  text-align: center;
+  border-radius: 12px;
+  background: #6d5dfc;
+  color: white;
+  padding: 14px 18px;
+  font-weight: 700;
+}
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
@@ -192,5 +223,9 @@ button:disabled {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
+  }
+
+  .row {
+    flex-direction: column;
   }
 }
